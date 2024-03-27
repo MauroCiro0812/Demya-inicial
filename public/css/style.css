@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 10px;
+}
+
+:root{
+    --color: #009feb;
+    --color-texto: white;
+    --letra-pequeña: 18px;
+    --letra-mediana: 40px;
+    --azul-claro:rgb(10, 157, 255);
+    --azul-oscuro:#023059;
+    --azul-medio: #0388a6 ;
+    --blanco-claro:#F9FAFC;
+    --disenio-body: conic-gradient(#38147f 0%,#38147f  25%, #8b4fff 50%, rgb(2, 12, 57) 75%, #2b007f 100%);
+    --disenio-nabvar: conic-gradient(#f9fafc 0%,rgb(71, 105, 216) 25% ,#38147f 50%, rgb(2, 12, 57) 75%, #f9fafc 100%);
+
+
+
+    --clr: #222327;
+}
+
+/* -**************************
+                NavBar
+************************** */
+body{
+    background-color:rgb(2, 12, 57) ;
+}
+
+.navigation{
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%; 
+    height: 72px;
+    background: var(--disenio-nabvar);
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    border-radius: 10px;
+    --clr: white; 
+}
+    
+
+.navigation ul{
+    display: flex;
+    /* width: 350px; */
+    margin-right: 80px; 
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr); 
+    text-decoration: none; 
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.5s;
+    color: rgb(0, 0, 0);
+
+}
+
+.navigation ul li.active a .icon{
+    transform: translateY(-32px);
+}
+.navigation ul li a .text {
+    position: absolute;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(100%) translateX(-50%); /* Combinar ambas transformaciones */
+    bottom: 5px; /* Ajustar la posición vertical del texto */
+    left: 50%; /* Centrar el texto horizontalmente */
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%); /* Combinar ambas transformaciones */
+}
+
+.indicator{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #00adff;
+    border-radius: 50%;
+    border: 6px solid rgb(2, 12, 57);
+    transition: 0.5s;
+}
+
+.indicator::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 rgb(2, 12, 57);
+}
+
+.indicator::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 rgb(2, 12, 57);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator{
+    transform:  translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform:  translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator{
+    transform:  translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator{
+    transform:  translateX(calc(70px * 3));
+    }
+
+/* 
+*{
+    background: var(--disenio-body);
+} */
+.seccion-principal{
+    /* margin-top: 40px; */
+    width: 100%;
+    display:flex;
+    text-align: center;
+    justify-content: space-between;
+    background-color: rgb(2, 12, 57);
+    color: white;
+    
+}
+
+.seccion-principal h1{
+    text-align: left;
+    margin-top: 30px;
+    margin-right: 60px;
+    margin-left: 40px;
+}
+
+.seccion-principal p{
+    text-align: right;
+    margin-right: 60px;
+    margin-top: 30px;
+}
+/*Estilos botones*/
+.contenedor{
+    display: flex;
+    height: 100vh;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(2, 12, 57);
+}
+
+.btn{
+    position: relative;
+    padding: 20px 50px;
+    text-decoration: none;
+    color: var(--color-texto);
+    letter-spacing: 10px;
+    text-indent: 10px;
+    z-index: 2;
+   
+}
+/*Primer boton*/
+.btn-2{
+    border: 3px solid;
+    color:var(--blanco-claro) !important;
+    background-color: var(--color);
+}
+
+.btn-2:hover{
+    background-color: #001a2b;
+    box-shadow: 0 0 20px var(--color);
+    border-color: var(--color);
+}
+
+.btn-2 span:nth-child(n){
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    transition: all 0.6s ease;
+}
+
+.btn-2 span:nth-child(1){
+    right: 10%;
+    top: -10px;
+    background-color: #fff;
+}
+
+.btn-2 span:nth-child(2){
+    left: 10%;
+    bottom: -10px;
+}
+
+.btn-2:hover span:nth-child(1){
+    right: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+    background-color: var(--color);
+    
+}
+
+.btn-2:hover span:nth-child(2){
+    left: 80%;
+    transform: rotate(90deg);
+    color: var(--color);
+}
+
+/*Boton medio*/
+.btn-3{
+    transition: all 0.6s ease;
+    
+}
+
+.btn-3::after{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 110%;
+    left: -10%;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    background-color: #ffffff;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-3::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: skew(20deg, 0deg);
+    border: 3px solid #03a0cc ;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-3:hover::after{
+    background-color: #ffffff31;
+    transform: skew(20deg, 0deg) translateX(350px);
+}
+
+.btn-3:hover::before{
+    background-color: #03a0cc;
+    border: 3px solid white;
+    transform: skew(20deg, 0deg) scale(1.1);
+}
+/*Ultimo boton*/
+.btn-5{
+    border: 3px solid #17a2ff;
+    overflow: hidden;
+}
+
+.btn-5::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(10,157,255);
+    z-index: -2;
+}
+
+.btn-5::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    left: 0;
+    bottom: -150%;
+    border-radius: 30%;
+    background-color: #151e3f;
+    
+    z-index: -1;
+}
+
+.btn-5:hover::before{
+    animation: btn-5 2s linear both;
+}
+
+
+@keyframes btn-5 {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        bottom: 100px;
+        transform: rotate(360deg);
+        
+    }
+}
+
+/*Formulario de contacto*/
+#contac{
+    padding: 50px 0;
+    background-color: var(--blanco-claro);
+    text-align: center;
+}
+
+.cont-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+.cont-contacto h2 {
+    margin-bottom: 20px;
+    color: var(--azul-claro);
+}
+
+.cont-contacto p {
+    margin-bottom: 30px;
+    color: var(--azul-claro);
+}
+
+.cont-contacto form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.cont-contacto input,
+.cont-contacto textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--azul-claro);
+    border-radius: 5px;
+}
+
+.cont-contacto button {
+    padding: 10px 20px;
+    background-color: var(--azul-claro);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cont-contacto button:hover {
+    cursor: pointer;
+    background-color: var(--azul-medio); 
+}
+
